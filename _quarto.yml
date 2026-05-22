@@ -17,7 +17,7 @@ website:
       - text: "Research"
         href: Research.qmd
       - text: "Blog"
-        href: Blog\index.qmd
+        href: Blog/index.qmd
     tools:
       - icon: cloud
         href: https://bsky.app/profile/sportecostudent.bsky.social
