@@ -99,25 +99,55 @@ Another thing that popped up in this initial analysis was how to handle the voti
 
 ``` {r}
 #| label: fig-votes-sentiment
-#| fig-cap: "Relationship between comment sentiment and community endorsement"
+#| fig-cap: "Unweighted vs. Vote-Weighted AFINN Sentiment"
 #| warning: false
 
 comments_sentiment %>%
-  filter(!is_reply, afinn_score != 0, net_votes > -10) %>%
-  mutate(
-    sustainability = if_else(article_has_sustainability_flag,
-                             "Sustainability Article", "Non-Sustainability Article")
+  group_by(article_has_sustainability_flag,
+           comment_has_sustainability_flag,
+           is_reply) %>%
+  summarise(
+    unweighted = mean(afinn_score, na.rm = TRUE),
+    weighted   = weighted_afinn(afinn_score, vote_weight),
+    n          = n(),
+    .groups    = "drop"
   ) %>%
-  ggplot(aes(x = afinn_score, y = net_votes, colour = sustainability)) +
-  geom_jitter(alpha = 0.4, width = 0.2, height = 0.2) +
-  geom_smooth(method = "lm", se = TRUE) +
-  scale_colour_manual(values = c("Non-Sustainability Article" = "#999999",
-                                 "Sustainability Article" = "#006462")) +
-  labs(x = "AFINN Sentiment Score", y = "Net Votes",
-       colour = NULL,
-       caption = "Top-level comments only | Comments scoring 0 excluded") +
+  pivot_longer(cols = c(unweighted, weighted),
+               names_to  = "scoring_method",
+               values_to = "mean_afinn") %>%
+  mutate(
+    article_sustainability = if_else(
+      article_has_sustainability_flag,
+      "Sustainability article", "Non-sustainability article"
+    ),
+    comment_sustainability = if_else(
+      comment_has_sustainability_flag,
+      "Comment mentions sustainability", "Comment does not mention sustainability"
+    ),
+    comment_type = if_else(is_reply, "Reply", "Top-level")
+  ) %>%
+  ggplot(aes(x = comment_type, y = mean_afinn, fill = scoring_method)) +
+  geom_col(position = position_dodge(width = 0.6), width = 0.5) +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "grey40") +
+  facet_grid(article_sustainability ~ comment_sustainability) +
+  scale_fill_manual(
+    values = c("unweighted" = "#999999", "weighted" = "#006462"),
+    labels = c("unweighted" = "Unweighted mean", "weighted" = "Vote-weighted mean")
+  ) +
+  labs(
+    title    = "Unweighted vs. Vote-Weighted AFINN Sentiment",
+    subtitle = "Weighted by net votes (upvotes - downvotes); minimum weight = 1",
+    x        = NULL,
+    y        = "Mean AFINN Score",
+    fill     = NULL,
+    caption  = "Pilot data (n = 19 articles)"
+  ) +
   theme_minimal() +
-  theme(legend.position = "bottom")
+  theme(
+    legend.position = "bottom",
+    strip.text      = element_text(face = "bold", size = 9),
+    axis.text.x     = element_text(face = "bold")
+  )
 ```
 
 # Abstract {#abstract}
