@@ -23,7 +23,7 @@ library(tidyverse)
 library(tidytext)
 library(here)
 
-comments_sentiment <- read_csv(here("comments_sentiment.csv"))
+comments_sentiment <- read_csv("comments_sentiment.csv")
 
 # Calculate net votes and weight (minimum 1 so zero-vote comments contribute)
 comments_sentiment <- comments_sentiment %>%
