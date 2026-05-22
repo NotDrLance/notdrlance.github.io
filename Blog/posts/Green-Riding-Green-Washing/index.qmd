@@ -11,6 +11,10 @@ execute:
   message: false
 ---
 
+<iframe src="Pinkbike_Project_Poster.pdf" width="100%" height="800px">
+</iframe>
+[Download Poster (PDF)](Pinkbike_Project_Poster.pdf)
+
 ``` {r}
 #| label: setup
 #| include: false
