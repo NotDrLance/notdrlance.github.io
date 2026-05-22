@@ -23,7 +23,7 @@ library(tidyverse)
 library(tidytext)
 library(here)
 
-comments_sentiment <- read_csv("comments_sentiment.csv")
+comments_sentiment <- read_csv(here("comments_sentiment.csv"))
 
 # Calculate net votes and weight (minimum 1 so zero-vote comments contribute)
 comments_sentiment <- comments_sentiment %>%
@@ -50,13 +50,16 @@ I am actively searching for collaborators on this project, so if you have intere
 
 Below I provide:
 - The poster's [abstract](#abstract)
+
 - Some [preliminary analysis](#preliminary-analysis) of the pilot data
+
 - My [future plans](#next-steps) for the project
+
 - Poster and abstract [references](#references)
 
 Thanks for reading!
 
-# Preliminary Analysis {#prelim-analysis}
+# Preliminary Analysis {#preliminary-analysis}
 
 One of the first things that stuck out from my analysis of the pilot data was related to the differences in responses to the inclusion of sustainability not in the articles, but in the comments themselves. It appears that replies that mention sustainability are more negative than top-level comments which mention sustainability. I'm curious to see if this pattern holds in the full dataset.
 
@@ -64,8 +67,6 @@ One of the first things that stuck out from my analysis of the pilot data was re
 #| label: fig-sustainability-sentiment
 #| fig-cap: "Vote-weighted comment sentiment by article sustainability mention"
 #| warning: false
-
-library(tidyverse)
 
 comments_sentiment %>%
   group_by(article_has_sustainability_flag, is_reply) %>%
@@ -127,7 +128,7 @@ This research utilizes the lens of message framing and message source, two key c
 
 This research aims to address gaps in the sport management literature by investigating the environmental communication of sport products through the lens of message framing and source. Additionally, it extends previous research on sport consumers’ preferences for sustainable products by investigating expressed sentiments rather than purchase intention or willingness to pay. It will also provide insights for manufacturers by highlighting which communication channels and strategies are most effective for leveraging the positive environmental attributes of their products.
 
-# Next Steps {#next_steps}
+# Next Steps {#next-steps}
 
 As a work in progress, there a lot of things to do! The main thing, as mentioned above, is to get in contact with Pinkbike representatives to figure out a solution for data collection. The inital plan was to scrape the needed data, but the website's Cloudflare settings make that difficult. So if you know someone from Pinkbike/Outside, let me know!
 
@@ -150,7 +151,9 @@ Kim, S.-B., & Kim, D.-Y. (2014). The Effects of Message Framing and Source Credi
 
 McCullough, B. P., Orr, M., & Kellison, T. (2020). Sport Ecology: Conceptualizing an Emerging Subdiscipline Within Sport Management. Journal of Sport Management, 34(6), 509–520. https://doi.org/10.1123/jsm.2019-0294
 
-Minqing Hu and Bing Liu, “Mining and summarizing customer reviews.”, Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD-2004), Seattle, Washington, USA, Aug 22-25, 2004.
+Hu, M., & Liu, B. (2004). Mining and summarizing customer reviews. 
+*Proceedings of the ACM SIGKDD International Conference on Knowledge 
+Discovery & Data Mining*, Seattle, WA.
 
 Nielsen, F. Å. (2011). A new ANEW: Evaluation of a word list for sentiment analysis in microblogs (arXiv:1103.2903). arXiv. https://doi.org/10.48550/arXiv.1103.2903
 
