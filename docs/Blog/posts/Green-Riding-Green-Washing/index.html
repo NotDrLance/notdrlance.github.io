@@ -227,6 +227,7 @@ Figure&nbsp;1: Vote-weighted comment sentiment by article sustainability mention
 </div>
 </div>
 </div>
+<p>This figure is included in the poster, but it shows the interaction between message framing (sustainability vs.&nbsp;not sustainability) and message source (“Review”, “First Ride”, “First Look”, “Press Release”)</p>
 <p>Another thing that popped up in this initial analysis was how to handle the voting system that Pinkbike uses for comments. On Pinkbike, users can up or down-vote both top-level comments and replies. This gives us the opportunity to adjust our analysis to account for community opinion (for lack of a better term). For example, a top-level comment may praise a company’s sustainability record (thus having a positive sentiment), and get, say, 5 upvotes and 3 downvotes. Meanwhile, a reply to that comment which contends that the company is greenwashing (a negative sentiment), may get 25 upvotes and 4 downvotes. Without accounting for the votes, we would see the comments as balanced on the article. However, if we weight by net votes, we would see that the wider community supports the negative view much more than they support the positive view. You can see the difference in weighted and unweighted sentiment scores below.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -236,7 +237,7 @@ Figure&nbsp;1: Vote-weighted comment sentiment by article sustainability mention
 <img src="index_files/figure-html/fig-votes-sentiment-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-votes-sentiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Relationship between comment sentiment and community endorsement
+Figure&nbsp;2: Unweighted vs.&nbsp;Vote-Weighted AFINN Sentiment
 </figcaption>
 </figure>
 </div>
