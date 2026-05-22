@@ -1,12 +1,8 @@
 ---
 title: "NASSM 2026 Poster Presentation: Green Riding or Green Washing?"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
+date: 2026-05-21
+categories: [sport-ecology, sport-marketing]
+description: "Preliminary analysis from my NASSM 2026 poster on sustainability messaging in mountain bike media."
 page-layout: full
 title-block-banner: true
 execute:

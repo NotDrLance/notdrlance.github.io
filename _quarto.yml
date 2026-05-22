@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Lance Warwick"
+  site-url: https://NotDrLance.github.io
   favicon: images/favicon.png
   navbar:
     logo: images/favicon.png
