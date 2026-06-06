@@ -49,6 +49,7 @@ Currently, this project is in the pilot stage. I am awaiting a response from Pin
 I am actively searching for collaborators on this project, so if you have interest in sustainable marketing in sport, textual analysis, or web scraping, please don't hesitate to reach out to me at lwarwick@ithaca.edu!
 
 Below I provide:
+
 - The poster's [abstract](#abstract)
 
 - Some [preliminary analysis](#preliminary-analysis) of the pilot data
