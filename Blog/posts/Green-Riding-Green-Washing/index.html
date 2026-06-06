@@ -202,8 +202,9 @@ Warning
 </div>
 </div>
 <p>I am actively searching for collaborators on this project, so if you have interest in sustainable marketing in sport, textual analysis, or web scraping, please don’t hesitate to reach out to me at lwarwick@ithaca.edu!</p>
-<p>Below I provide: - The poster’s <a href="#abstract">abstract</a></p>
+<p>Below I provide:</p>
 <ul>
+<li><p>The poster’s <a href="#abstract">abstract</a></p></li>
 <li><p>Some <a href="#preliminary-analysis">preliminary analysis</a> of the pilot data</p></li>
 <li><p>My <a href="#next-steps">future plans</a> for the project</p></li>
 <li><p>Poster and abstract <a href="#references">references</a></p></li>
@@ -231,12 +232,12 @@ Figure&nbsp;1: Vote-weighted comment sentiment by article sustainability mention
 <p>Another thing that popped up in this initial analysis was how to handle the voting system that Pinkbike uses for comments. On Pinkbike, users can up or down-vote both top-level comments and replies. This gives us the opportunity to adjust our analysis to account for community opinion (for lack of a better term). For example, a top-level comment may praise a company’s sustainability record (thus having a positive sentiment), and get, say, 5 upvotes and 3 downvotes. Meanwhile, a reply to that comment which contends that the company is greenwashing (a negative sentiment), may get 25 upvotes and 4 downvotes. Without accounting for the votes, we would see the comments as balanced on the article. However, if we weight by net votes, we would see that the wider community supports the negative view much more than they support the positive view. You can see the difference in weighted and unweighted sentiment scores below.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-votes-sentiment" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-votes-sentiment-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-votes-sentiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="index_files/figure-html/fig-votes-sentiment-1.png" class="img-fluid figure-img" width="672">
+<div aria-describedby="fig-votes-sentiment-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-votes-sentiment-2-1.png" class="img-fluid figure-img" width="672">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-votes-sentiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-votes-sentiment-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Unweighted vs.&nbsp;Vote-Weighted AFINN Sentiment
 </figcaption>
 </figure>
